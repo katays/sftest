@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1235px;
+            height: 866px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1.js"></script>
+        <script src="data/geo_export_44dfed0e2b124b869bae1a6cb757a747_2.js"></script>
+        <script src="data/geo_export_e40e0d298b6446689ef1ae4045775d9e_3.js"></script>
+        <script src="data/geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[44.8807937043874,-66.6551027498945],[45.453415863633644,-65.49603644482904]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_OpenStreetMap_0');
+        map.getPane('pane_OpenStreetMap_0').style.zIndex = 400;
+        var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OpenStreetMap_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OpenStreetMap_0;
+        map.addLayer(layer_OpenStreetMap_0);
+        function pop_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['region'] !== null ? autolinker.link(feature.properties['region'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['district'] !== null ? autolinker.link(feature.properties['district'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['old_distri'] !== null ? autolinker.link(feature.properties['old_distri'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['region_nom'] !== null ? autolinker.link(feature.properties['region_nom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['district_n'] !== null ? autolinker.link(feature.properties['district_n'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['old_name'] !== null ? autolinker.link(feature.properties['old_name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['region_nam'] !== null ? autolinker.link(feature.properties['region_nam'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ecoregion'] !== null ? autolinker.link(feature.properties['ecoregion'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ecodistric'] !== null ? autolinker.link(feature.properties['ecodistric'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['shape_leng'] !== null ? autolinker.link(feature.properties['shape_leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['shape_area'] !== null ? autolinker.link(feature.properties['shape_area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1_0(feature) {
+            switch(String(feature.properties['region_nam'])) {
+                case 'Central Uplands Ecoregion':
+                    return {
+                pane: 'pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,1,84,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Eastern Lowlands Ecoregion':
+                    return {
+                pane: 'pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(70,50,127,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Fundy Coastal Ecoregion':
+                    return {
+                pane: 'pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(54,92,141,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Grand Lake Lowlands Ecoregion':
+                    return {
+                pane: 'pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(39,127,142,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Highlands Ecoregion':
+                    return {
+                pane: 'pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,162,136,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Northern Uplands Ecoregion':
+                    return {
+                pane: 'pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(74,194,109,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Valley Lowlands Ecoregion':
+                    return {
+                pane: 'pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(158,217,58,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,231,37,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1');
+        map.getPane('pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1').style.zIndex = 401;
+        map.getPane('pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1').style['mix-blend-mode'] = 'normal';
+        var layer_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1 = new L.geoJson(json_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+            layerName: 'layer_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+            pane: 'pane_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1',
+            onEachFeature: pop_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1,
+            style: style_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1_0,
+        });
+        bounds_group.addLayer(layer_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1);
+        map.addLayer(layer_geo_export_df8887d091cf4aa8a1068cf1983b6f5c_1);
+        function pop_geo_export_44dfed0e2b124b869bae1a6cb757a747_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['feature'] !== null ? autolinker.link(feature.properties['feature'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['key'] !== null ? autolinker.link(feature.properties['key'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['length'] !== null ? autolinker.link(feature.properties['length'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['maxz'] !== null ? autolinker.link(feature.properties['maxz'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['minz'] !== null ? autolinker.link(feature.properties['minz'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['objectid'] !== null ? autolinker.link(feature.properties['objectid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['shape_len'] !== null ? autolinker.link(feature.properties['shape_len'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['source'] !== null ? autolinker.link(feature.properties['source'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['theme'] !== null ? autolinker.link(feature.properties['theme'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_geo_export_44dfed0e2b124b869bae1a6cb757a747_2_0() {
+            return {
+                pane: 'pane_geo_export_44dfed0e2b124b869bae1a6cb757a747_2',
+                opacity: 1,
+                color: 'rgba(243,166,178,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_geo_export_44dfed0e2b124b869bae1a6cb757a747_2');
+        map.getPane('pane_geo_export_44dfed0e2b124b869bae1a6cb757a747_2').style.zIndex = 402;
+        map.getPane('pane_geo_export_44dfed0e2b124b869bae1a6cb757a747_2').style['mix-blend-mode'] = 'normal';
+        var layer_geo_export_44dfed0e2b124b869bae1a6cb757a747_2 = new L.geoJson(json_geo_export_44dfed0e2b124b869bae1a6cb757a747_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_geo_export_44dfed0e2b124b869bae1a6cb757a747_2',
+            layerName: 'layer_geo_export_44dfed0e2b124b869bae1a6cb757a747_2',
+            pane: 'pane_geo_export_44dfed0e2b124b869bae1a6cb757a747_2',
+            onEachFeature: pop_geo_export_44dfed0e2b124b869bae1a6cb757a747_2,
+            style: style_geo_export_44dfed0e2b124b869bae1a6cb757a747_2_0,
+        });
+        bounds_group.addLayer(layer_geo_export_44dfed0e2b124b869bae1a6cb757a747_2);
+        map.addLayer(layer_geo_export_44dfed0e2b124b869bae1a6cb757a747_2);
+        function pop_geo_export_e40e0d298b6446689ef1ae4045775d9e_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['area'] !== null ? autolinker.link(feature.properties['area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['key'] !== null ? autolinker.link(feature.properties['key'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['municipali'] !== null ? autolinker.link(feature.properties['municipali'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['objectid'] !== null ? autolinker.link(feature.properties['objectid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['perimeter'] !== null ? autolinker.link(feature.properties['perimeter'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['primary_tr'] !== null ? autolinker.link(feature.properties['primary_tr'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['secondary'] !== null ? autolinker.link(feature.properties['secondary'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['shape_area'] !== null ? autolinker.link(feature.properties['shape_area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['shape_len'] !== null ? autolinker.link(feature.properties['shape_len'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['watershed'] !== null ? autolinker.link(feature.properties['watershed'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_geo_export_e40e0d298b6446689ef1ae4045775d9e_3_0() {
+            return {
+                pane: 'pane_geo_export_e40e0d298b6446689ef1ae4045775d9e_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(129,128,164,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_geo_export_e40e0d298b6446689ef1ae4045775d9e_3');
+        map.getPane('pane_geo_export_e40e0d298b6446689ef1ae4045775d9e_3').style.zIndex = 403;
+        map.getPane('pane_geo_export_e40e0d298b6446689ef1ae4045775d9e_3').style['mix-blend-mode'] = 'normal';
+        var layer_geo_export_e40e0d298b6446689ef1ae4045775d9e_3 = new L.geoJson(json_geo_export_e40e0d298b6446689ef1ae4045775d9e_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_geo_export_e40e0d298b6446689ef1ae4045775d9e_3',
+            layerName: 'layer_geo_export_e40e0d298b6446689ef1ae4045775d9e_3',
+            pane: 'pane_geo_export_e40e0d298b6446689ef1ae4045775d9e_3',
+            onEachFeature: pop_geo_export_e40e0d298b6446689ef1ae4045775d9e_3,
+            style: style_geo_export_e40e0d298b6446689ef1ae4045775d9e_3_0,
+        });
+        bounds_group.addLayer(layer_geo_export_e40e0d298b6446689ef1ae4045775d9e_3);
+        map.addLayer(layer_geo_export_e40e0d298b6446689ef1ae4045775d9e_3);
+        function pop_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['area'] !== null ? autolinker.link(feature.properties['area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['feature'] !== null ? autolinker.link(feature.properties['feature'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['key'] !== null ? autolinker.link(feature.properties['key'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['objectid'] !== null ? autolinker.link(feature.properties['objectid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['perimeter'] !== null ? autolinker.link(feature.properties['perimeter'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['shape_area'] !== null ? autolinker.link(feature.properties['shape_area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['shape_len'] !== null ? autolinker.link(feature.properties['shape_len'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4_0() {
+            return {
+                pane: 'pane_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,52,145,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4');
+        map.getPane('pane_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4').style.zIndex = 404;
+        map.getPane('pane_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4').style['mix-blend-mode'] = 'normal';
+        var layer_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4 = new L.geoJson(json_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4',
+            layerName: 'layer_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4',
+            pane: 'pane_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4',
+            onEachFeature: pop_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4,
+            style: style_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4_0,
+        });
+        bounds_group.addLayer(layer_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4);
+        map.addLayer(layer_geo_export_f32cb1ecf1dd4a68b5c6b761efafac7c_4);
+        setBounds();
+        </script>
+    </body>
+</html>
